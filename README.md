@@ -1,10 +1,8 @@
-[![Build Status](https://travis-ci.org/sc932/resume.svg?branch=master)](https://travis-ci.org/sc932/resume)
+[![Build Status](https://travis-ci.org/Chromadream/resume.svg?branch=master)](https://travis-ci.org/Chromadream/resume)
 
-This is my resume (and CV) in LaTeX
+This is my resume in LaTeX
 
-This resume is based off a template I found a few years ago, which was a modified template, see the (C) list at the top for a history.
-
-I have also included the original templates (along the path to my resume).
+This resume is forked from [Scott Clark's resume.](https://github.com/sc932/resume)
 
 Feel free to fork and edit.
 
