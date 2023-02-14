@@ -55,7 +55,15 @@
 \begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
 		\textbf{#1} & #2 \\
 		\textit{#3} & \textit{#4} \\
-\end{tabular*}\vspace{-6pt}}
+\end{tabular*}
+\vspace{-2pt}
+}
+
+\newcommand{\subsubheading}[2]{
+\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+		\textit{#1} & \textit{#2} \\
+\end{tabular*}\vspace{2pt}
+}
 
 %-----------------------------------------------------------
 \begin{document}
@@ -77,7 +85,9 @@
 \begin{itemize}
 
 \item
-	\ressubheading{Dye \& Durham Australia (previous GlobalX)}{Melbourne, AU}{Senior Software Engineer}{Jan 2019 - present}
+	\ressubheading{Dye \& Durham Australia (previous GlobalX)}{Melbourne, AU}{Senior Software Engineer}{Dec 2021 - present}
+	\subsubheading{Software Engineer}{Dec 2019 - Dec 2021}
+	\subsubheading{Junior Software Engineer}{Jan 2019 - Dec 2019}
 	\begin{itemize}
 	  \resitem{Maintained a large-scale workflow productivity tool for conveyancers in Australia}
 	  \resitem{Became a part of the team that designed, developed, and maintained a new Practice Management Software project}
