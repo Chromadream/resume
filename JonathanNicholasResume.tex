@@ -51,28 +51,32 @@
   }\vspace{-5pt}
 }
 
-\newcommand{\ressubheading}[4]{
-\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+
+\newcommand{\ressubheading}[4]{%
+\begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
 		\textbf{#1} & #2 \\
 		\textit{#3} & \textit{#4} \\
-\end{tabular*}
-\vspace{-2pt}
+\end{tabular*}%
+\vspace{-2pt}%
 }
 
-\newcommand{\subsubheading}[2]{
-\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
-		\textit{#1} & \textit{#2} \\
-\end{tabular*}\vspace{2pt}
+\newcommand{\subsubheading}[3][2pt]{%
+\vspace{#1}%
+\begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
+		\textit{#2} & \textit{#3} \\
+\end{tabular*}%
+\vspace{1pt}%
 }
+
 
 %-----------------------------------------------------------
 \begin{document}
 
 \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
 
-\textbf{{\Large Jonathan Nicholas}}\\
-\texttt{Jonathan.Nicholas@protonmail.com} & \texttt{chromadream.github.io} \\
-\texttt{https://github.com/Chromadream}
+	\textbf{{\Large Jonathan Nicholas}}\\
+	\texttt{Jonathan.Nicholas@protonmail.com} & \texttt{chromadream.github.io} \\
+	\texttt{https://github.com/Chromadream}
 
 \end{tabular*}
 
@@ -84,42 +88,35 @@
 
 \begin{itemize}
 
-\item
-	\ressubheading{Dye \& Durham Australia (previous GlobalX)}{Melbourne, AU}{Senior Software Engineer}{Dec 2021 - present}
-	\subsubheading{Software Engineer}{Dec 2019 - Dec 2021}
-	\subsubheading{Junior Software Engineer}{Jan 2019 - Dec 2019}
-	\begin{itemize}
-	  \resitem{Maintained a large-scale workflow productivity tool for conveyancers in Australia}
-	  \resitem{Became a part of the team that designed, developed, and maintained a new Practice Management Software project}
-	  \resitem{Part of a project to improve document storage and workflow}
-	  \resitem{Maintained and improved CI/CD pipelines used throughout the company}
-	  \resitem{Coaches, mentors, and guides junior engineers in the company}
-	  \resitem{Spearheaded the usage of contract testing to improve company release confidence}
-	\end{itemize}
-
-\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\resheading{Education}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{itemize}
-
-\item
-	\ressubheading{Monash University}{Melbourne, AU}{B.InfoTech (Computer Network \& Security)}{2017 - 2018}
-	\begin{itemize}
-		\resitem{GPA 3.3}
-		\resitem{Participated in UniHack Mini Monash, 2017}
-		\resitem{Developed two major software development project on PHP 7 as main developer}
-	\end{itemize}
-
-\item
-	\ressubheading{Monash University}{Melbourne, AU}{Diploma of Engineering (IT Stream)}{2016 - 2017}
-	\begin{itemize}
-    \resitem{GPA 3.75}
-	\end{itemize}
+	\item
+	      \ressubheading{ChatShop.org}{Melbourne, AU}{Founder}{Sep 2024 - present}
+	      \begin{itemize}
+		      \resitem{Founded and built Chatshop.org, a GenAI-powered shopping assistant combining multimodal search with real-time recommendations through interactive 3D conversational interface}
+		      \resitem{Developed responsive frontend using React, Tailwind CSS, and shadcn/ui with dynamic 3D avatar interactions via AWS Sumerian Hosts}
+		      \resitem{Architected backend services with LangChain, FastAPI, and Pydantic for robust data validation and API design}
+		      \resitem{Implemented RAG vector search using pgvector for semantic product matching and context-aware conversation history}
+		      \resitem{Integrated OpenAI APIs for natural language processing and tool-using agent behaviors with streaming responses}
+		      \resitem{Enhanced user experience with AWS Polly speech synthesis, enabling natural multimodal interactions}
+		      \resitem{Secured platform with AWS Cognito authentication and scalable session management}
+		      \resitem{Established comprehensive observability using Langfuse for LLM performance monitoring and prompt optimization}
+		      \resitem{Automated nightly product catalog ingestion through custom web scraping framework, maintaining current inventory data}
+		      \resitem{Deployed secure infrastructure on AWS with Cloudflare integration for DDoS protection and TLS management}
+		      \resitem{Leading ongoing product development including UX design, AI optimization, and strategic feature roadmap planning}
+		      \resitem{Delivered end-to-end system encompassing frontend, backend, MLOps, and infrastructure for production-grade GenAI application}
+	      \end{itemize}
+	\item
+	      \ressubheading{Dye \& Durham Australia (previous GlobalX)}{Melbourne, AU}{Senior Software Engineer}{Dec 2021 - present}
+	      \subsubheading[-1pt]{Software Engineer}{Dec 2019 - Dec 2021}
+	      \subsubheading{Junior Software Engineer}{Jan 2019 - Dec 2019}
+	      \begin{itemize}
+		      \resitem{Developed Property Title data integration solution connecting all Australian jurisdictions, utilized by major banks nationwide}
+		      \resitem{Contributed to maintaining large-scale workflow productivity tools serving Australian conveyancers}
+		      \resitem{Collaborated on designing and developing new Practice Management Software from concept to deployment}
+		      \resitem{Enhanced document storage systems and streamlined workflow processes}
+		      \resitem{Optimized CI/CD pipelines to improve deployment efficiency across development teams}
+		      \resitem{Mentored junior engineers through code reviews, pair programming, and technical guidance}
+		      \resitem{Introduced contract testing practices that increased release confidence and reduced production issues}
+	      \end{itemize}
 
 \end{itemize}
 
@@ -131,13 +128,38 @@
 
 \begin{itemize}
 
-\item {\bf Programming Languages:} C\#, Ruby, Java, PostgreSQL, Node.js, TypeScript, Silverlight, Dart.
-\item {\bf Frameworks and Libraries:} Angular 2+, ASP.NET Core, Entity Framework, Vue.js, Microsoft LightSwitch, Flutter.
-\item {\bf Development Tools:} git, Visual Studio Code, TeamCity, Octopus Deploy, Docker, Kubernetes, Kong, Google Cloud Platform, flux.
-\item {\bf Development Practices:} Test Driven Development, Agile Development, Scrum, Continuous Integration/Continous Delivery (CI/CD), Automation and Scripting.
+	\item {\bf Programming Languages:} C\#, Ruby, Java, PostgreSQL, Node.js, TypeScript, Silverlight, Deno, Python, JavaScript.
+	\item {\bf Frameworks and Libraries:} Angular 2+, ASP.NET Core, Entity Framework Core, Vue.js, React, LangChain, LangServe, FastAPI, Pydantic, TailwindCSS, shadcn/ui.
+	\item {\bf Development Tools:} git, Visual Studio Code, TeamCity, Octopus Deploy, Docker, Kubernetes, Kong, Google Cloud Platform, fluxcd, AWS ECS, AWS Cognito, AWS Polly, Langfuse, pgvector.
+	\item {\bf Development Practices:} Test Driven Development, Agile Development, Scrum, Continuous Integration/Continous Delivery (CI/CD), Automation and Scripting, DevOps, MLOps, RAG Implementation, GenAI Application Development.
+	\item {\bf Cloud and Infrastructure:} AWS (ECS, Cognito, Polly, Sumerian Hosts), Cloudflare, DDoS Protection, TLS Management, Infrastructure as Code, Web Scraping Automation.
+	\item {\bf AI/ML Technologies:} OpenAI APIs, Natural Language Understanding, Vector Search, Semantic Matching, Multimodal AI, Speech-to-Text/Text-to-Speech, Agent-based Systems, LLM Observability.
+
 \end{itemize}
 
-\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{Education}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+
+	\item
+	      \ressubheading{Monash University}{Melbourne, AU}{B.InfoTech (Computer Network \& Security)}{2017 - 2018}
+	      \begin{itemize}
+		      \resitem{GPA 3.3}
+		      \resitem{Participated in UniHack Mini Monash, 2017}
+		      \resitem{Developed two major software development project on PHP 7 as main developer}
+	      \end{itemize}
+
+	\item
+	      \ressubheading{Monash University}{Melbourne, AU}{Diploma of Engineering (IT Stream)}{2016 - 2017}
+	      \begin{itemize}
+		      \resitem{GPA 3.75}
+	      \end{itemize}
+
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -147,37 +169,8 @@
 
 \begin{itemize}
 
-\item {\bf Monash University - Information Technology International Merit Scholarship (2017):} A scholarship awarded from Monash University for exceptional study progression and results.
-\item {\bf Monash College - Academic Excellence Award (2016):} Awarded for “Introduction to Algorithms and Programming”.
-\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\resheading{Volunteering Experience}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{itemize}
-
-\item
-	\ressubheading{Monash Student Union Volunteer}{Melbourne, AU}{Library Volunteer}{Feb 2018 - Nov 2018}
-	\begin{itemize}
-			\resitem{Worked in team to ensure that the Monash Student Union’s library collections are preserved correctly and neatly.}
-\end{itemize}
-
-\item
-	\ressubheading{Monash University}{Melbourne, AU}{Peer Mentor}{Feb 2018 - Jun 2018}
-	\begin{itemize}
-			\resitem{Provided guidance to first year students of Monash University.}
-\end{itemize}
-
-\item
-	\ressubheading{Monash College}{Melbourne, AU}{IT Student Ambassador}{Oct 2016 - Feb 2017}
-	\begin{itemize}
-			\resitem{Provided technical guidance to newly-enrolled Monash College students.}
-			\resitem{Received positive feedbacks from fellow ambassadors and clients.}
-\end{itemize}
-
+	\item {\bf Monash University - Information Technology International Merit Scholarship (2017):} A scholarship awarded from Monash University for exceptional study progression and results.
+	\item {\bf Monash College - Academic Excellence Award (2016):} Awarded for “Introduction to Algorithms and Programming”.
 \end{itemize}
 
 \end{document}
