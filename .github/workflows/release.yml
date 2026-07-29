@@ -1,0 +1,61 @@
+name: Release resume
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "**.tex"
+      - "**.sty"
+      - ".github/workflows/release.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: resume-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes texlive texlive-latex-extra
+
+      - name: Build resume
+        run: |
+          mkdir --parents dist
+          pdflatex -halt-on-error -interaction=nonstopmode -output-directory=dist JonathanNicholasResume.tex
+          pdflatex -halt-on-error -interaction=nonstopmode -output-directory=dist JonathanNicholasResume.tex
+          test -s dist/JonathanNicholasResume.pdf
+
+      - name: Publish latest release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: resume-latest
+        run: |
+          git tag --force "$RELEASE_TAG" "$GITHUB_SHA"
+          git push origin "refs/tags/$RELEASE_TAG" --force
+
+          release_notes="Automatically generated from commit [$GITHUB_SHA]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/commit/$GITHUB_SHA)."
+
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release upload "$RELEASE_TAG" dist/JonathanNicholasResume.pdf --clobber
+            gh release edit "$RELEASE_TAG" \
+              --title "Latest Resume" \
+              --notes "$release_notes" \
+              --latest
+          else
+            gh release create "$RELEASE_TAG" dist/JonathanNicholasResume.pdf \
+              --title "Latest Resume" \
+              --notes "$release_notes" \
+              --latest
+          fi

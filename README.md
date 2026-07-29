@@ -1,8 +1,10 @@
 # Resume
 
-[![Build Status](https://travis-ci.org/Chromadream/resume.svg?branch=master)](https://travis-ci.org/Chromadream/resume)
+[![Release resume](https://github.com/Chromadream/resume/actions/workflows/release.yml/badge.svg)](https://github.com/Chromadream/resume/actions/workflows/release.yml)
 
 Jonathan Nicholas' Resume on LaTeX.
+
+[Download the latest resume (PDF).](https://github.com/Chromadream/resume/releases/latest/download/JonathanNicholasResume.pdf)
 
 This resume is forked from [Scott Clark's resume.](https://github.com/sc932/resume)
 
@@ -10,7 +12,7 @@ Feel free to fork and edit.
 
 In linux run
 
-```bash$
+```bash
 pdflatex resumeName.tex
 ```
 
