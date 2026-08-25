@@ -33,7 +33,7 @@
 \setlength{\paperheight}{11in}
 \setlength{\paperwidth}{8.5in}
 \setlength{\tabcolsep}{0in}
-\setlength{\textheight}{9.75in}
+\setlength{\textheight}{9.95in}
 \setlength{\textwidth}{7in}
 \setlength{\topmargin}{-0.3in}
 \setlength{\topskip}{0in}
@@ -41,14 +41,14 @@
 
 %-----------------------------------------------------------
 %Custom commands
-\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
-\newcommand{\resheading}[1]{\vspace{8pt}
+\newcommand{\resitem}[1]{\item #1 \vspace{-3pt}}
+\newcommand{\resheading}[1]{\vspace{0pt}
   \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
     \begin{shaded}
 
-\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
+\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{1pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
     \end{shaded}
-  }\vspace{-5pt}
+  }\vspace{-11pt}
 }
 
 
@@ -71,6 +71,8 @@
 
 %-----------------------------------------------------------
 \begin{document}
+\setlength{\itemsep}{-3pt}
+\linespread{0.96}\selectfont
 
 \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
 
@@ -79,6 +81,14 @@
 	\texttt{https://github.com/Chromadream}
 
 \end{tabular*}
+
+\resheading{Professional Summary}
+
+\vspace{4pt}
+
+Senior full-stack engineer with six-plus years building business-critical systems in C\#/.NET, Angular, and React/Redux, deployed to AWS and Google Cloud with Docker, Kubernetes, Terraform, PostgreSQL, and OAuth2/OIDC. I work across the entire stack, from database schema to finished UI, and I use AI coding assistants on production work and have driven their adoption across my team.
+
+\vspace{4pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -93,18 +103,20 @@
 	      \subsubheading[-1pt]{Software Engineer}{Dec 2019 - Dec 2021}
 	      \subsubheading{Junior Software Engineer}{Jan 2019 - Dec 2019}
 	      \begin{itemize}
-		      \resitem{Architected a property-title data integration spanning all Australian jurisdictions and used by major banks nationwide}
-		      \resitem{Owned and evolved GitHub Actions CI/CD tooling across 200+ microservice repositories and six teams, standardising delivery practices and improving deployment efficiency}
-		      \resitem{Led adoption of AI-assisted engineering practices, translating emerging capabilities into practical development workflows}
-		      \resitem{Partnered across teams to maintain and evolve large-scale practice management products serving Australian conveyancers}
-		      \resitem{Mentored junior engineers through code reviews, pair programming, and technical guidance, reinforcing engineering best practices}
+		      \resitem{Ship practice management features as Angular SPAs over ASP.NET Core (C\#) REST APIs on Google Cloud, owning work from data store to UI}
+		      \resitem{Architected a property-title data integration spanning all Australian jurisdictions, used by major banks nationwide}
+		      \resitem{Designed relational schemas and optimised query performance in PostgreSQL}
+		      \resitem{Containerised services with Docker, released to Kubernetes on Google Cloud in production, and provisioned infrastructure with Terraform}
+		      \resitem{Built async messaging with RabbitMQ, the queue and pub/sub patterns AWS SNS/SQS also offer, and implemented OAuth2/OIDC authentication with Keycloak}
+		      \resitem{Owned GitHub Actions CI/CD across 200+ microservice repositories and six teams; unit, integration, and end-to-end tests run there. Led AI coding assistant adoption (Copilot, Claude)}
+		      \resitem{Mentor junior engineers through code reviews and pair programming}
 	      \end{itemize}
 	\item
 	      \ressubheading{Independent Contractor}{Remote}{Self-employed}{2023 - present}
 	      \begin{itemize}
-		      \resitem{Implemented OTA updates on the React Native application of a family-owned solar energy hardware manufacturer}
-			  \resitem{Developed the proof-of-concept and MVP for a stealth-mode B2C AI Native company}
-			  \resitem{Developed internal automations for a tax accounting firm, saving 250+ hours of manual work annually}
+		      \resitem{Implemented OTA updates on the React Native app of a solar energy hardware manufacturer}
+			  \resitem{Built a stealth-mode B2C AI native MVP on AWS (EKS): React/Redux front end, Auth0 sign-in, and OpenAI API agent logic with LangChain and LangGraph}
+			  \resitem{Built internal automations for a tax accounting firm, saving 250+ hours of manual work a year}
 	      \end{itemize}
 
 \end{itemize}
@@ -117,17 +129,18 @@
 
 \begin{itemize}
 
-	\item {\bf Languages:} C\#, TypeScript, JavaScript, Python, Java, SQL.
-	\item {\bf Frameworks:} Angular, ASP.NET Core, Entity Framework Core, React, Vue.js, FastAPI, Pydantic, Tailwind CSS.
-	\item {\bf Developer Platform:} GitHub, GitHub Actions, Docker, Kubernetes, Flux CD, Kong, TeamCity, Octopus Deploy.
+	\item {\bf Languages:} C\#, TypeScript, JavaScript, SQL, Python, Java.
+	\item {\bf Backend:} C\#/.NET (6+), ASP.NET Core, EF Core, PostgreSQL, RabbitMQ, FastAPI, Pydantic.
+	\item {\bf Frontend:} Angular, React, Redux, TypeScript, Vue.js, Tailwind CSS.
+	\item {\bf Cloud and Infrastructure:} AWS (EKS, S3, SNS/SQS, IAM, VPC), Google Cloud, Docker, Kubernetes, Terraform, Cloudflare, GitOps.
+	\item {\bf CI/CD:} GitHub Actions, Flux CD, Kong, TeamCity, Octopus Deploy, DevOps, Agile delivery.
+	\item {\bf Auth and Testing:} OAuth2/OIDC, Keycloak, Auth0, unit/integration/E2E testing, TDD.
 	\item {\bf AI Engineering:} LangGraph, LangChain, OpenAI Agents SDK, Claude API, Pydantic AI, LlamaIndex, MCP, RAG, LangSmith, Langfuse, pgvector.
-	\item {\bf Cloud and Practices:} AWS, Google Cloud, Cloudflare, TDD, CI/CD, Infrastructure as Code, DevOps, GitOps, Agile delivery.
 
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
 \resheading{Education}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
