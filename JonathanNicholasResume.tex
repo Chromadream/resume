@@ -16,6 +16,7 @@
 \usepackage{framed}
 \usepackage{tocloft}
 \usepackage{etoolbox}
+\usepackage{array}
 \robustify\cftdotfill
 
 %-----------------------------------------------------------
@@ -41,28 +42,28 @@
 
 %-----------------------------------------------------------
 %Custom commands
-\newcommand{\resitem}[1]{\item #1 \vspace{-3pt}}
+\newcommand{\resitem}[1]{\item #1 \vspace{-1pt}}
 \newcommand{\resheading}[1]{\vspace{0pt}
-  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
+  \parbox{\linewidth}{\setlength{\FrameSep}{\outerbordwidth}
     \begin{shaded}
 
-\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{1pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
+\setlength{\fboxsep}{0pt}\framebox[\linewidth][l]{\setlength{\fboxsep}{1pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[\dimexpr\linewidth-2\FrameSep-2\fboxsep\relax][l]{\large #1} \vphantom{p\^{E}}}}}}
     \end{shaded}
-  }\vspace{-11pt}
+  }\vspace{-15pt}
 }
 
 
-\newcommand{\ressubheading}[4]{%
-\begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
-		\textbf{#1} & #2 \\
-		\textit{#3} & \textit{#4} \\
+\newcommand{\ressubheading}[5][1.35in]{%
+\begin{tabular*}{\linewidth}{@{}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-#1-2pt\relax}@{\extracolsep{\fill}}r@{}}
+		\textbf{#2} & #3 \\
+		\textit{#4} & \textit{#5} \\
 \end{tabular*}%
-\vspace{-2pt}%
+\vspace{1pt}%
 }
 
 \newcommand{\subsubheading}[3][2pt]{%
 \vspace{#1}%
-\begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
+\begin{tabular*}{\linewidth}{@{}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-1.35in-2pt\relax}@{\extracolsep{\fill}}r@{}}
 		\textit{#2} & \textit{#3} \\
 \end{tabular*}%
 \vspace{1pt}%
@@ -72,9 +73,22 @@
 %-----------------------------------------------------------
 \begin{document}
 \setlength{\itemsep}{-3pt}
-\linespread{0.96}\selectfont
+\setlength{\leftmargini}{1.5em}
+\setlength{\leftmarginii}{1.2em}
+\makeatletter
+\def\@listii{%
+  \leftmargin\leftmarginii
+  \labelwidth\leftmarginii
+  \advance\labelwidth-\labelsep
+  \topsep -3pt
+  \partopsep 0pt
+  \itemsep 4pt
+  \parsep 0pt}
+\makeatother
+\fontsize{10.5}{12}\selectfont
+\linespread{0.90}\selectfont
 
-\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
+\begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
 
 	\textbf{{\Large Jonathan Nicholas}}\\
 	\texttt{Jonathan.Nicholas@protonmail.com} & \texttt{chromadream.github.io} \\
@@ -84,14 +98,15 @@
 
 \resheading{Professional Summary}
 
-\vspace{4pt}
+\vspace{12pt}
 
 Senior full-stack engineer with six-plus years building business-critical systems in C\#/.NET, Angular, and React/Redux, deployed to AWS and Google Cloud with Docker, Kubernetes, Terraform, PostgreSQL, and OAuth2/OIDC. I work across the entire stack, from database schema to finished UI, and I use AI coding assistants on production work and have driven their adoption across my team.
 
-\vspace{4pt}
+\vspace{-9pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{minipage}[t]{0.49\textwidth}%
 \resheading{Work Experience}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -100,14 +115,13 @@ Senior full-stack engineer with six-plus years building business-critical system
 
 	\item
 	      \ressubheading{Dye \& Durham Australia (formerly GlobalX)}{Melbourne, AU}{Senior Software Engineer}{Dec 2021 - present}
-	      \subsubheading[-1pt]{Software Engineer}{Dec 2019 - Dec 2021}
+	      \subsubheading[0pt]{Software Engineer}{Dec 2019 - Dec 2021}
 	      \subsubheading{Junior Software Engineer}{Jan 2019 - Dec 2019}
 	      \begin{itemize}
 		      \resitem{Ship practice management features as Angular SPAs over ASP.NET Core (C\#) REST APIs on Google Cloud, owning work from data store to UI}
 		      \resitem{Architected a property-title data integration spanning all Australian jurisdictions, used by major banks nationwide}
 		      \resitem{Designed relational schemas and optimised query performance in PostgreSQL}
-		      \resitem{Containerised services with Docker, released to Kubernetes on Google Cloud in production, and provisioned infrastructure with Terraform}
-		      \resitem{Built async messaging with RabbitMQ, the queue and pub/sub patterns AWS SNS/SQS also offer, and implemented OAuth2/OIDC authentication with Keycloak}
+		      \resitem{Built async messaging with RabbitMQ (queue and pub/sub patterns, as in AWS SNS/SQS), implemented OAuth2/OIDC with Keycloak, and shipped services via Docker/Kubernetes on Google Cloud with Terraform infrastructure}
 		      \resitem{Owned GitHub Actions CI/CD across 200+ microservice repositories and six teams; unit, integration, and end-to-end tests run there. Led AI coding assistant adoption (Copilot, Claude)}
 		      \resitem{Mentor junior engineers through code reviews and pair programming}
 	      \end{itemize}
@@ -116,13 +130,13 @@ Senior full-stack engineer with six-plus years building business-critical system
 	      \begin{itemize}
 		      \resitem{Implemented OTA updates on the React Native app of a solar energy hardware manufacturer}
 			  \resitem{Built a stealth-mode B2C AI native MVP on AWS (EKS): React/Redux front end, Auth0 sign-in, and OpenAI API agent logic with LangChain and LangGraph}
-			  \resitem{Built internal automations for a tax accounting firm, saving 250+ hours of manual work a year}
+			  \resitem{Built LLM-powered tools that extract figures from clients' income documents and prepare the tax workpapers practitioners fill the return from, saving the firm 250+ hours of manual work a year}
 	      \end{itemize}
 
 \end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.43\textwidth}%
 \resheading{Technical Skills}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -148,31 +162,18 @@ Senior full-stack engineer with six-plus years building business-critical system
 \begin{itemize}
 
 	\item
-	      \ressubheading{Monash University}{Melbourne, AU}{B.InfoTech (Computer Network \& Security)}{2017 - 2018}
+	      \ressubheading[1.0in]{Monash University}{Melbourne, AU}{B.InfoTech (Computer Network \& Security)}{2017 - 2018}
 	      \begin{itemize}
 		      \resitem{GPA 3.5}
-		      \resitem{Participated in UniHack Mini Monash, 2017}
-		      \resitem{Developed two major software development project on PHP 7 as main developer}
 	      \end{itemize}
 
 	\item
-	      \ressubheading{Monash University}{Melbourne, AU}{Diploma of Engineering (IT Stream)}{2016 - 2017}
+	      \ressubheading[1.0in]{Monash University}{Melbourne, AU}{Diploma of Engineering (IT Stream)}{2016 - 2017}
 	      \begin{itemize}
 		      \resitem{GPA 3.75}
 	      \end{itemize}
 
 \end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\resheading{Awards and Scholarships}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{itemize}
-
-	\item {\bf Monash University - Information Technology International Merit Scholarship (2017):} A scholarship awarded from Monash University for exceptional study progression and results.
-	\item {\bf Monash College - Academic Excellence Award (2016):} Awarded for “Introduction to Algorithms and Programming”.
-\end{itemize}
+\end{minipage}%
 
 \end{document}
